@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next-Gen Hauptmenü</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-layer"></div>
+
+    <main class="menu-container">
+        <h1 class="game-title">PROJECT<br><span>SONIC</span></h1>
+        
+        <div id="mainMenu">
+            <nav class="main-nav">
+                <button class="nav-btn" data-target="new-game">Neues Spiel</button>
+                <button class="nav-btn" data-target="load-game">Spiel laden</button>
+                <button class="nav-btn" id="btnOptions">Optionen</button>
+                <button class="nav-btn" data-target="extras">Extras</button>
+                <button class="nav-btn quit-btn" data-target="quit">Beenden</button>
+            </nav>
+        </div>
+
+        <div id="optionsMenu" class="hidden">
+            <nav class="main-nav">
+                <h2 style="color: rgba(255,255,255,0.5); margin-bottom: 10px; font-weight: 300; letter-spacing: 2px;">OPTIONEN</h2>
+                <button class="nav-btn">Profil & Account</button>
+                <button class="nav-btn">Grafik & Video</button>
+                <button class="nav-btn">Audio</button>
+                <button class="nav-btn quit-btn" id="btnBack">Zurück</button>
+            </nav>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
