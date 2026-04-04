@@ -111,3 +111,42 @@ body {
     from { opacity: 0; transform: translateX(-20px); }
     to { opacity: 1; transform: translateX(0); }
 }
+
+
+/* =========================================
+   📱 MOBILE OPTIMIERUNG (Handys & Tablets) 
+   ========================================= */
+@media (max-width: 768px) {
+    
+    /* 1. Menü in die absolute Mitte rücken */
+    .menu-container {
+        margin-left: 0; 
+        align-items: center; 
+        text-align: center;
+        width: 100%;
+    }
+
+    /* 2. Buttons in die Mitte setzen */
+    .main-nav {
+        align-items: center; 
+    }
+
+    /* 3. Den riesigen Titel etwas schrumpfen */
+    .game-title {
+        font-size: 2.8rem; 
+        letter-spacing: 2px;
+    }
+
+    /* 4. Touch-Optimierung für dicke Daumen */
+    .nav-btn {
+        font-size: 1.2rem;
+        padding: 12px 20px; /* Macht die unsichtbare Klick-Fläche größer */
+    }
+
+    /* 5. Auf dem Handy gibt es keine Maus, also ändern wir den Hover-Effekt etwas ab, 
+       damit der Button beim Antippen nicht komisch aus dem Bildschirm rutscht */
+    .nav-btn:hover, .nav-btn:focus {
+        transform: scale(1.05); /* Wird leicht größer statt nach rechts zu rutschen */
+        box-shadow: 0 0 15px rgba(0, 255, 204, 0.5); /* Ein sanftes Leuchten statt dem Balken */
+    }
+}
