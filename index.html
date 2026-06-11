@@ -41,19 +41,19 @@
 
             <div class="char-select-layout">
                 <div class="roster-grid">
-                    <button class="nav-btn char-slot" onclick="selectChar('TIFA LOCKHART', 'img/tifa_render.png')">
+                    <button class="nav-btn char-slot" data-char="TIFA LOCKHART" data-img="img/tifa_render.png">
                         <img src="img/tifa_icon.png" alt="Tifa">
                     </button>
-                    <button class="nav-btn char-slot" onclick="selectChar('SONIC THE HEDGEHOG', 'img/sonic_render.png')">
+                    <button class="nav-btn char-slot" data-char="SONIC THE HEDGEHOG" data-img="img/sonic_render.png">
                         <img src="img/sonic_icon.png" alt="Sonic">
                     </button>
-                    <button class="nav-btn char-slot" onclick="selectChar('KURAPIKA', 'img/kurapika_render.png')">
+                    <button class="nav-btn char-slot" data-char="KURAPIKA" data-img="img/kurapika_render.png">
                         <img src="img/kurapika_icon.png" alt="Kurapika">
                     </button>
                 </div>
 
                 <div class="main-display">
-                    <img id="main-render" src="img/tifa_render.png" alt="Tifa" style="max-height: 40vh; filter: drop-shadow(0 0 15px #00ffcc);">
+                    <img id="main-render" src="img/tifa_render.png" alt="Tifa">
                     <h2 id="char-name" class="game-title" style="font-size: 2.5rem; margin-top: 20px;"><span>WÄHLE</span> KÄMPFER</h2>
                 </div>
             </div>

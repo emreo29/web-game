@@ -198,3 +198,12 @@ body {
     box-shadow: 0 0 15px #00ffcc;
     border-color: #00ffcc;
 }
+
+#main-render {
+    height: 45vh; /* Gibt eine feste Höhe vor */
+    width: 100%;
+    max-width: 400px; /* Verhindert, dass breite Bilder den halben Bildschirm füllen */
+    object-fit: contain; /* Skaliert das Bild perfekt in die Box, ohne es zu verzerren */
+    filter: drop-shadow(0 0 15px #00ffcc);
+    transition: opacity 0.15s ease-in-out;
+}
