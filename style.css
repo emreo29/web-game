@@ -150,3 +150,51 @@ body {
         box-shadow: 0 0 15px rgba(0, 255, 204, 0.5); /* Ein sanftes Leuchten statt dem Balken */
     }
 }
+
+/* =========================================
+   NEU: CHARACTER SELECT STYLES
+   ========================================= */
+
+.char-select-layout {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.main-display {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+/* Das Tekken-Raster */
+.roster-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* 3 Spalten */
+    gap: 15px;
+}
+
+/* Anpassung der nav-btn für die Charakter-Bilder */
+.char-slot {
+    padding: 5px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.char-slot img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Überschreibt den Slide-Effekt für die Charakter-Icons, damit sie beim Hovern nicht wegfliegen, sondern leuchten */
+.char-slot:hover, .char-slot:focus {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00ffcc;
+    border-color: #00ffcc;
+}

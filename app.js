@@ -114,3 +114,60 @@ btnBack.addEventListener('click', () => {
 
 // Beim allerersten Laden der Seite direkt den ersten Button anvisieren
 updateFocus();
+
+// =========================================
+// 5. NEU: CHARACTER SELECT LOGIK
+// =========================================
+
+const btnNewGame = document.getElementById('btnNewGame');
+const charSelectMenu = document.getElementById('charSelectMenu');
+const btnBackFromChar = document.getElementById('btnBackFromChar');
+let bgmStarted = false;
+
+// Klick auf "Neues Spiel" öffnet das Character Select
+btnNewGame.addEventListener('click', () => {
+    mainMenu.classList.add('hidden');
+    charSelectMenu.classList.remove('hidden');
+    charSelectMenu.classList.add('fade-in');
+    
+    // Setzt die Pfeiltasten-Steuerung auf das erste Charakter-Icon
+    currentIndex = 0;
+    setTimeout(updateFocus, 100); 
+});
+
+// Klick auf "Zurück" im Character Select
+btnBackFromChar.addEventListener('click', () => {
+    charSelectMenu.classList.add('hidden');
+    mainMenu.classList.remove('hidden');
+    mainMenu.classList.add('fade-in');
+    
+    // Tekken Musik stoppen beim Zurückgehen
+    const bgm = document.getElementById('bgm');
+    bgm.pause();
+    bgm.currentTime = 0; // Spult die Musik auf Anfang
+    bgmStarted = false;
+
+    currentIndex = 0;
+    setTimeout(updateFocus, 100);
+});
+
+// Funktion, um den Charakter zu wechseln (wird im HTML über onclick aufgerufen)
+window.selectChar = function(name, imagePath) {
+    const renderImg = document.getElementById('main-render');
+    
+    // Kurzer Fade-Effekt für das Render-Bild
+    renderImg.style.opacity = 0;
+    setTimeout(() => {
+        renderImg.src = imagePath;
+        document.getElementById('char-name').innerHTML = `<span>${name}</span>`;
+        renderImg.style.opacity = 1;
+    }, 150);
+    
+    // Musik beim ersten Klick starten
+    if (!bgmStarted) {
+        let bgm = document.getElementById('bgm');
+        bgm.volume = 0.3; // Nicht zu laut starten
+        bgm.play().catch(e => console.log("Audio play prevented by browser"));
+        bgmStarted = true;
+    }
+};
