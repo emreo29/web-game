@@ -159,13 +159,25 @@ body {
     display: flex;
     gap: 60px;
     align-items: center;
-    margin-top: 20px;
+    /* Wir begrenzen das Layout auf 55% der Bildschirmhöhe. 
+       So bleibt oben genug Platz für den Titel und unten für den Button! */
+    height: 55vh; 
+    margin-top: 10px;
+    /* NEU: Zwingt das gesamte Menü, sich über den Bildschirm zu strecken */
+    width: 75vw;
 }
 
 .main-display {
     flex: 1;
-    text-align: center;
-    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Setzt Sonic wieder in die Mitte */
+    align-items: center;
+    height: 100%; /* Nimmt exakt die 55vh von oben, keinen Pixel mehr */
+    position: relative; /* Damit der Char-Name absolut positioniert werden kann */
+    /* NEU: Sichert ab, dass die rechte Seite massiv breit bleibt, 
+       damit der Charakter perfekt in der rechten Bildschirmhälfte zentriert wird! */
+    min-width: 50vw;
 }
 
 /* Das Tekken-Raster */
@@ -200,10 +212,26 @@ body {
 }
 
 #main-render {
-    height: 45vh; /* Gibt eine feste Höhe vor */
+    height: 100%; /* Nutzt den vollen erlaubten Platz der main-display Box */
     width: 100%;
-    max-width: 400px; /* Verhindert, dass breite Bilder den halben Bildschirm füllen */
-    object-fit: contain; /* Skaliert das Bild perfekt in die Box, ohne es zu verzerren */
-    filter: drop-shadow(0 0 15px #00ffcc);
+    max-width: 800px;
+    object-fit: contain; 
+    filter: drop-shadow(0 0 20px rgba(0, 255, 204, 0.4));
     transition: opacity 0.15s ease-in-out;
+    margin-bottom: 10px;
+}
+
+#char-name {
+    position: absolute; /* Löst den Text vom Rest des Layouts */
+    bottom: -10px; /* Setzt ihn ganz nach unten an den Rand */
+    width: 100%; /* Nimmt die volle Breite der rechten Seite ein */
+    text-align: center; /* Zentriert den Text perfekt in der Mitte */
+    white-space: nowrap; /* Verhindert, dass extrem lange Namen in eine zweite Zeile umbrechen */
+    
+    font-size: 3rem;
+    letter-spacing: 7px;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+    margin: 0;
+    pointer-events: none; /* Sorgt dafür, dass der Text nichts blockiert */
+    font-weight: 1500;
 }
